@@ -1,0 +1,26 @@
+/* Custom CSS for the table */
+.table-custom {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table-custom th,
+.table-custom td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table-custom th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table-custom tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-custom tbody tr:hover {
+    background-color: #e0e0e0;
+}

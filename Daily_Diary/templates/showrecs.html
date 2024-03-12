@@ -1,0 +1,75 @@
+<!-- templates/show_records.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {% load static %}
+    {% block title %}Show Records{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/table.css' %}">
+    <style>
+        .motivational-content {
+            text-align: left;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: 0; /* Adjusted to start from the left edge */
+            margin-right: 0; /* Adjusted to start from the left edge */
+        }
+
+    /* Add some basic styling to make it look like a button */
+
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div id="message" style='color: #04AA6D' align="center">
+        {{ msg }}
+    </div>
+    <script>
+        function hideElementAfterDelay(elementId, delay) {
+            var element = document.getElementById(elementId);
+            if (element) {
+                setTimeout(function() {
+                    element.style.display = "none";
+                }, delay);
+            }
+        }
+        // Call the function with the element ID and duration
+        hideElementAfterDelay("message", 5000); // 5000 milliseconds (5 seconds)
+    </script>
+
+    <div class="container" align="center">
+
+        <!-- Motivational Content -->
+        <div class="motivational-content">
+            <h2>Welcome to My Diary App!</h2>
+            <p>This website is your personal space to reflect on your day, appreciate the good moments, and find positivity even in challenging times.</p>
+            <p>Remember, every day is a new opportunity to create beautiful memories. Keep writing and let your thoughts flow!</p>
+        </div>
+    <div >
+        <style>
+                    .button {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                        text-align: center;
+                        text-decoration: none;
+                        cursor: pointer;
+                        border: 1px solid #3498db;
+                        border-radius: 5px;
+                        color: #ffffff;
+                        background-color: #3498db;
+                    }
+
+                    /* Change the color when the button is hovered over */
+                    .button:hover {
+                        background-color: #2980b9;
+                    }
+        </style>
+             <a href="{% url 'view' %}" class="button">View previous Notes</a>
+    </div>
+
+
+{% endblock %}

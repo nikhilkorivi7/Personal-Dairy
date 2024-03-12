@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block head %}
+    {% load static %}
+    {% block title %}Registration Page{% endblock %}
+{% endblock %}
+{% block body %}
+    <div class="header">
+        <div class="first">
+		    <img src="{% static 'images/img_2.png' %}"  alt="Description of the image">
+	    </div>
+    	<div class="second">
+	    	My Diary App
+	    </div>
+    </div>
+	    <br/><br/>
+    <div class="bodypart">
+	    <div class="bodypart1">
+	</div>
+	    <div class="bodypart2">
+	        <h1>REGISTRATION FORM</h1>
+	        <form method="POST" action="{% url 'reg' %}">
+                {% csrf_token %}
+                <label>username:</label> <input type="text" name="username" value="" required placeholder="Please enter your User name" class="formcontrol"><br><br>
+	            <label>Password:</label> <input type="password" name="password" value="" required placeholder="Please enter your User Password" class="formcontrol"><br><br>
+                <button type="submit">REGISTER</button>
+            </form>
+	            <br><br>
+	         Existing User ? <a href="login">Login</a>
+	    </div>
+    </div>
+{% endblock %}

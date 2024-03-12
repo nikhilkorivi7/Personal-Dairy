@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+    {% block title %}View Page{% endblock %}
+{% endblock %}
+{% block body %}
+     {% if records %}
+    <table  class="table table-success table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in records %}
+                    <tr>
+                        <td>{{ record.date }}</td>
+                        <td>{{ record.content }}</td>
+                    </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+        {% else %}
+        <p>No records found for the user.</p>
+    {% endif %}
+{% endblock %}

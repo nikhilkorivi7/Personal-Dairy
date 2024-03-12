@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block head %}
+    {% load static %}
+    {% block title %}Login Page{% endblock %}
+
+{% endblock %}
+{% block body %}
+        <div class="header">
+	    <div class="first">
+		    <img src="{% static 'images/img_2.png' %}"  alt="Description of the image">
+	    </div>
+
+    	<div class="second">
+            My Diary App
+
+    <div id="message" style='color: #04AA6D'>
+        {{ msg }}
+    </div>
+    <script>
+        function hideElementAfterDelay(elementId, delay) {
+            var element = document.getElementById(elementId);
+            if (element) {
+                setTimeout(function() {
+                    element.style.display = "none";
+                }, delay);
+            }
+        }
+        // Call the function with the element ID and duration
+        hideElementAfterDelay("message", 5000); // 5000 milliseconds (5 seconds)
+    </script>
+	    </div>
+    </div>
+    <div class="bodypart">
+{#	    <div class="bodypart1">#}
+{#	    <img src="<c:url value="css\images\img.png"/>" #}
+{#	</div>#}
+	    <div class="bodypart2" align="center">
+	        <h1>LOGIN FORM</h1>
+	        <form method="POST" action="{% url 'log' %}" >
+                {% csrf_token %}
+                <label>username:</label> <input type="text" name="username" required placeholder="Please enter your User name" class="formcontrol"><br><br>
+	            <label>password:</label> <input type="password" name="password" required placeholder="Please enter your User Password" class="formcontrol"><br><br>
+                <button type="submit">LogIn</button>
+            </form>
+	            <br><br>
+	         New User ? <a href="register">Register</a>
+	    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block head %}
+    {% load static %}
+    {% block title %}Content Writing Page{% endblock %}
+
+{% endblock %}
+{% block body %}
+
+    <div class="header" >
+    <div id="message" style='color: #04AA6D' align="center">
+             {{ msg }}
+        </div>
+    <script>
+        function hideElementAfterDelay(elementId, delay) {
+            var element = document.getElementById(elementId);
+            if (element) {
+                setTimeout(function() {
+                    element.style.display = "none";
+                }, delay);
+            }
+        }
+        // Call the function with the element ID and duration
+        hideElementAfterDelay("message", 5000); // 5000 milliseconds (5 seconds)
+    </script>
+	    <div class="first">
+		    <img src="{% static 'images/img_2.png' %}"  alt="Description of the image">
+	    </div>
+    	<div class="second">
+	    	MyDiary App<br>
+	    </div>
+    </div>
+
+	    <br/><br/>
+    <div class="bodypart">
+	    <div class="bodypart1">
+{#	    <img src="<c:url value="css\images\img.png"/>" width="30" height="30">#}
+	</div>
+	    <div class="bodypart2">
+	        <h1>Describe Your Day</h1>
+	        <form method="POST" action="{% url 'write' %}">
+                {% csrf_token %}
+                <input type="hidden" name="username" value="{{ username }}">
+                <label>Date:</label> <input type='datetime-local' name="date" value="" required placeholder="Please enter date" class="formcontrol"><br><br>
+	            <label>Content:</label> <input type="text" name="content" value="" required placeholder="Tell about ur day" class="formcontrol"><br><br>
+                <button type="submit">Submit</button>
+            </form>
+	    </div>
+    </div>
+{% endblock %}
